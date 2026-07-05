@@ -1,0 +1,27 @@
+# Example case file — ALL DATA FICTIONAL, for demonstration only.
+# A deliberately sparse case: no standardized scores, no DOB, no sensory
+# checklist. Requesting a full IEP evaluation for this case produces
+# blocking intake issues; a summary runs with warnings. Redaction is on.
+
+student:
+  name: DeShawn Taylor
+  grade: K
+  school: Westbrook Primary
+  diagnoses: []
+
+assessment:
+  observations: >
+    DeShawn was observed during morning centers at Westbrook Primary.
+    He held crayons with a fisted grasp and switched hands mid-task.
+    He avoided the cutting table and asked a peer to open his glue stick.
+
+# Note: no formal referral reason documented yet — the teacher's request
+# below is a concern, not a referral. This makes `iep` generation block.
+context:
+  teacher_concerns: >
+    Kindergarten teacher requests OT screening for pre-writing and
+    scissor-skill concerns.
+
+privacy:
+  redact: true
+  extra_identifiers: []
