@@ -1,0 +1,29 @@
+[project]
+name = "pediatric-ot-assistant"
+version = "0.1.0"
+description = "Documentation assistant for school-based pediatric occupational therapists (IEP evaluations, progress notes, teacher checklists, parent handouts)"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.60",
+    "pydantic>=2.6",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+ot-assist = "pediatric_ot_assistant.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["pediatric_ot_assistant*"]
+
+[tool.setuptools.package-data]
+pediatric_ot_assistant = ["prompts/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

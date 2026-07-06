@@ -1,0 +1,73 @@
+# Example case file — ALL DATA FICTIONAL, for demonstration only.
+# A complete case exercising the full pipeline. Note that the student's
+# name and school appear inside free-text notes below, which is exactly
+# what the redaction stage is designed to catch.
+
+student:
+  name: Maya Rodriguez
+  dob: 2018-09-14
+  grade: "2"
+  school: Lincoln Elementary
+  diagnoses:
+    - Developmental coordination disorder
+  medical_history: >
+    Full-term birth, no significant medical history. Wears prescription
+    glasses for mild myopia (vision corrected; last exam 2025-11).
+  vision_hearing: Vision corrected with glasses; hearing within normal limits (screened 2025-10).
+  parent_names:
+    - Elena Rodriguez
+  teacher_name: Ms. Carter
+
+assessment:
+  standardized_tests:
+    - name: BOT-2 (Bruininks-Oseretsky Test of Motor Proficiency, 2nd ed.)
+      date: 2026-05-12
+      scores: >
+        Fine Manual Control composite: standard score 38 (below average).
+        Fine Motor Precision scale score 9; Fine Motor Integration scale
+        score 10; Manual Dexterity scale score 8.
+      interpretation: Fine motor skills significantly below age expectations.
+    - name: Sensory Profile 2 (Teacher form)
+      date: 2026-05-15
+      scores: >
+        Sensory Seeking: Much More Than Others. Registration: More Than
+        Others. Body Position: More Than Others. Touch: typical range.
+  observations: >
+    Maya was observed in her classroom at Lincoln Elementary during a
+    writing block and an art activity. She used a static tripod grasp
+    with heavy pencil pressure, frequently breaking pencil tips. Letter
+    formation was inconsistent with poor line orientation; she reversed
+    b/d in 4 of 10 written words. Maya fatigued after approximately
+    5 minutes of writing and began rocking in her chair and chewing on
+    her sleeve. During cutting, Maya's scissor strokes were choppy and
+    she rotated the paper with her assisting hand only after verbal cues.
+  functional_performance: >
+    Handwriting: writes first name legibly; copies from board slowly with
+    frequent place-loss. Cutting: cuts straight lines with mild deviation;
+    curved lines not yet accurate. ADLs: manages zippers independently;
+    buttons with moderate assistance; opens milk carton with assistance.
+  sensory_checklists: >
+    Teacher checklist notes frequent movement-seeking (rocking, standing
+    at desk), chewing on shirt/sleeves, and difficulty settling after
+    recess transitions.
+  prior_iep_goals: >
+    None — initial evaluation.
+
+context:
+  referral_reason: >
+    Teacher referral for handwriting legibility, hand fatigue, and
+    movement-seeking behaviors interfering with written work completion.
+  classroom_environment: >
+    General education classroom of 24 students; desk seating in table
+    groups of four; daily 30-minute writing block.
+  teacher_concerns: >
+    Ms. Carter reports Maya's written output is far below peers and that
+    she is often out of her seat during seatwork.
+  parent_concerns: >
+    Mother reports Maya avoids coloring and drawing at home and becomes
+    frustrated with homework requiring writing.
+  session_frequency: Evaluation only; services to be determined.
+
+privacy:
+  redact: false
+  extra_identifiers: []
