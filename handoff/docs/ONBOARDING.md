@@ -9,9 +9,9 @@ skipping it, historically: failures F1–F6.
 1. `handoff/README.md` — the map (1 min).
 2. `handoff/FAILURE-LOG.md` — skim all entries. This is *why* the rules
    exist; rules read without their failures get rationalized away.
-3. The four skills in `handoff/skills/` (or `.claude/skills/` once
+3. The five skills in `handoff/skills/` (or `.claude/skills/` once
    installed): `executing-plans`, `spec-fidelity`, `gated-scope`,
-   `fact-discipline`. These are binding, not advisory.
+   `fact-discipline`, `context-economy`. These are binding, not advisory.
 4. `handoff/OPEN-QUESTIONS.md` — know the live gates before scoping anything.
 5. `handoff/docs/MODEL-ROUTING.md` — check whether today's task runs solo or
    queues for a human, *before* starting it.
@@ -19,22 +19,12 @@ skipping it, historically: failures F1–F6.
 
 ## Tool routing for context economy
 
-This repo has two context bombs and one shape trap:
-
-- **`Agentic_Design_Patterns.pdf` is 20 MB / 400+ pages. Never read it
-  wholesale.** Use `Read` with the `pages` parameter for specific pages only,
-  and only when a task genuinely needs book text. Repo work almost never does.
-- **Notebook files are single-line JSON.** `cat`/`Read` on one dumps escaped
-  JSON and wastes tokens. Extract code instead:
-  ```
-  python3 -c "import json,sys; [print(''.join(c.get('source',[]))) for c in json.load(open(sys.argv[1]))['cells']]" 'notebooks/<file>'
-  ```
-- **Start from `notebooks/INDEX.md`** (once Phase 1 lands) to locate the
-  right notebook — don't open files to find out what they are.
-- Sweeping questions ("which files use ADK?") → `Grep` over `notebooks/`, or
-  an Explore agent for multi-angle sweeps. Never a file-by-file Read loop.
-- Facts about repo state → run the counting command (`fact-discipline`),
-  don't eyeball directory listings.
+This repo has two context bombs (the 20 MB PDF, single-line-JSON notebooks)
+and a shape trap (line-based tools lie about one-line files — see
+FAILURE-LOG F7). The mechanics live in one place: the `context-economy`
+skill. Follow it for *every* exploration, inspection, or count — it is the
+difference between a session that finishes and one that drowns in escaped
+JSON.
 
 ## After a context compaction
 

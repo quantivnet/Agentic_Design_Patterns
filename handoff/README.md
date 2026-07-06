@@ -22,12 +22,13 @@ evidence, with re-runnable commands: `FAILURE-LOG.md`.
 
 | Path | What it is |
 |---|---|
-| `FAILURE-LOG.md` | Documented failures F1–F6, each with a verification command. The root justification for every rule here. |
+| `FAILURE-LOG.md` | Documented failures F1–F7, each with a verification command. The root justification for every rule here. |
 | `OPEN-QUESTIONS.md` | Live gates (Q-001…Q-003). Work behind an OPEN gate is refused, not flagged. |
 | `skills/executing-plans/` | STOP on plan-vs-reality mismatch; steps close only with pasted verification output. |
 | `skills/spec-fidelity/` | API-mirroring code comes only from captured specs; failing contract tests are never fixed at the assertion. |
 | `skills/gated-scope/` | Unanswered external question ⇒ dependent work refused outright. |
-| `skills/fact-discipline/` | Statistics carry source + as-of date; tier-X claims need tier-X evidence; absence claims need a documented search. |
+| `skills/fact-discipline/` | Statistics carry source + as-of date; tier-X claims need tier-X evidence; expected outputs captured, never predicted; absence claims need a documented search. |
+| `skills/context-economy/` | Tool routing around this repo's context bombs: the 20 MB PDF, single-line-JSON notebooks (line-based tools lie), file-by-file reading where an index or sweep is cheaper. |
 | `plans/PLAN-TEMPLATE.md` | Required shape for all future plans (complete code, per-step verify + expected output + hasty-model trap). |
 | `plans/2026-07-notebook-restoration-phase-1.md` | The flagship plan: the next real piece of work, fully designed and ready to execute. All expected outputs were actually captured, not predicted. |
 | `docs/ONBOARDING.md` | Session start protocol: read order, tool routing for context economy, post-compaction re-verification. |
@@ -41,5 +42,5 @@ evidence, with re-runnable commands: `FAILURE-LOG.md`.
 Follow `docs/ONBOARDING.md`, then execute
 `plans/2026-07-notebook-restoration-phase-1.md` under the `executing-plans`
 skill. That plan is deliberately the first task: it is mechanical, fully
-specified, needs no API keys, and its traps exercise all four skills once
-each — a calibration run for the whole system.
+specified, needs no API keys, and its traps exercise every skill at
+least once — a calibration run for the whole system.

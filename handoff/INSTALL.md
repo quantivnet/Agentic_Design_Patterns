@@ -10,20 +10,21 @@ From the repo root:
 
 ```
 mkdir -p .claude/skills
-cp -r handoff/skills/executing-plans .claude/skills/
-cp -r handoff/skills/spec-fidelity   .claude/skills/
-cp -r handoff/skills/gated-scope     .claude/skills/
-cp -r handoff/skills/fact-discipline .claude/skills/
+cp -r handoff/skills/executing-plans  .claude/skills/
+cp -r handoff/skills/spec-fidelity    .claude/skills/
+cp -r handoff/skills/gated-scope      .claude/skills/
+cp -r handoff/skills/fact-discipline  .claude/skills/
+cp -r handoff/skills/context-economy  .claude/skills/
 ```
 
 **Verify:**
 ```
 $ ls .claude/skills
-executing-plans  fact-discipline  gated-scope  spec-fidelity
+context-economy  executing-plans  fact-discipline  gated-scope  spec-fidelity
 $ head -3 .claude/skills/executing-plans/SKILL.md
 ---
 name: executing-plans
-description: Use whenever executing a multi-step plan in this repo (anything in handoff/plans/, or any user-approved step list). Enforces STOP-on-mismatch and evidence-based step completion — a step is done only when its verification output is pasted.
+description: Use when executing any multi-step plan (handoff/plans/ or a user-approved step list). STOP on any plan-vs-reality mismatch; a step is done only when its verification output is pasted — "it should pass" never closes a step.
 ```
 
 The originals stay in `handoff/skills/` as the reviewed source of truth;
@@ -44,8 +45,8 @@ Jupyter JSON (some still missing `.ipynb` until the restoration plan lands).
 
 Before any work, follow `handoff/docs/ONBOARDING.md` (read order, tool
 routing, post-compaction protocol). Binding rules live in `.claude/skills/`:
-executing-plans, spec-fidelity, gated-scope, fact-discipline — each justified
-in `handoff/FAILURE-LOG.md`.
+executing-plans, spec-fidelity, gated-scope, fact-discipline,
+context-economy — each justified in `handoff/FAILURE-LOG.md`.
 
 Hard constraints:
 - Check `handoff/docs/MODEL-ROUTING.md` before starting a task; some tasks
@@ -53,7 +54,7 @@ Hard constraints:
 - Check `handoff/OPEN-QUESTIONS.md`; work gated on an OPEN question is
   refused, not flagged.
 - Never Read `Agentic_Design_Patterns.pdf` wholesale (20 MB); never `cat` a
-  notebook — extract cell source via the one-liner in ONBOARDING.md.
+  notebook — follow the `context-economy` skill for extraction and counting.
 - `notebooks/INDEX.md` is generated; edit only via `tools/build_index.py`.
 ```
 
@@ -68,7 +69,7 @@ $ wc -l CLAUDE.md
 ```
 git checkout -b activate-handoff
 git add .claude/ CLAUDE.md
-git commit -m "Activate handoff: install four project skills and CLAUDE.md
+git commit -m "Activate handoff: install five project skills and CLAUDE.md
 
 Skills sourced from handoff/skills/ (see handoff/FAILURE-LOG.md for the
 documented failures each one answers)."

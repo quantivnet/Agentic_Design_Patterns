@@ -162,6 +162,31 @@ diff <(python3 -c "import json;print(''.join(json.load(open('notebooks/Chapter 1
 
 ---
 
+## F7 — Predicted expected-output written into the handoff itself (near-miss, caught)
+
+**What happened:** while authoring this handoff (2026-07-06 session), the F1
+verification was first drafted as `grep -c 'gpt4omini' ... # expected: 2` —
+the count *predicted* from memory of an earlier occurrence scan. Notebook
+files are single-line JSON, so `grep -c` (which counts lines) returns 1. The
+wrong expectation was caught only because every published command was re-run
+verbatim before commit. The same session's `build_index.py` first shipped a
+framework scanner whose word-boundary regex missed `langchain_openai`-style
+imports — visible only by reading the generated output, not the code. Both
+are the F1–F3 failure mode aimed at our own instruments: a verification
+artifact is just as capable of mirroring memory instead of reality as the
+code it checks.
+
+**Verify** (the shape trap that made the prediction wrong):
+```
+awk 'END{print NR}' 'notebooks/Chapter 1_ Prompt Chaining (Code Example)'
+# expected: 1   (every notebook is single-line JSON; line-based counts lie)
+```
+
+**Motivates:** `fact-discipline` (captured-not-predicted rule),
+`context-economy`.
+
+---
+
 ## How to add an entry
 
 Append below this line; never rewrite or delete an existing entry (strike

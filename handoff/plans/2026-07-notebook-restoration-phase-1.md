@@ -140,7 +140,8 @@ STOP and re-baseline — do not proceed on drifted preconditions.
   `gpt4omini`, and other stale/broken model IDs, and you will want to
   "correct" them — either by hand-editing index rows or by editing the
   notebooks so the index looks better. The index reports what IS
-  (`fact-discipline` rule 4); fixing the underlying IDs is Phase 2, gated on
+  (`fact-discipline` rule 5, names and labels are claims); fixing the
+  underlying IDs is Phase 2, gated on
   Q-003. If the index is embarrassing, it is working.
 - **STOP conditions:** rows ≠ 61; re-running `build_index.py` twice produces
   a diff (generator must be deterministic).
